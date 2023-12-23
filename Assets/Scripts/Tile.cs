@@ -2,15 +2,16 @@ using UnityEngine;
 public class Tile : MonoBehaviour
 {
 	public int tileID;
-	public Material xMaterial;
-	public Material oMaterial;
+	public Color xColor;
+	public Color oColor;
 	void OnMouseDown()
 	{
 		if (GameManager.instance.Move(tileID))
 		{
-			Material myMaterial = GameManager.instance.currentTurn == GameManager.OppositePlayer((char)GameManager.Players.x) ? xMaterial : oMaterial;
 			Renderer rend = GetComponent<Renderer>();
-			rend.material = myMaterial;
+			// If move count is NOT divisible by 2, then it's X turn
+			// We use this because of the inconvenience when the game ends - the currentTurn variable becomes '-'
+			rend.material.color = GameManager.instance.moveCount % 2 != 0 ? xColor : oColor;
 		}
 	}
 }
