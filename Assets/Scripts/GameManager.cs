@@ -39,12 +39,23 @@ public class GameManager : MonoBehaviour
 		InitializeGame();
 	}
 
+	void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.R))
+		{
+			InitializeGame();
+		}
+	}
+
 	void InitializeGame()
 	{
 		ResetBoard();
 		gameEnded = false;
 		winner = '-'; // Empty
+		winnerText.text = $"Winner: -";
 		currentTurn = (char)Players.x;
+		turnText.text = "Current turn: X";
+		moveCount = 0;
 	} // Resets the game
 
 	void ResetBoard()
