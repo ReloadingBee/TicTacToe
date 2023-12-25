@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
 
 	public TMP_Text turnText;
 	public TMP_Text winnerText;
+	public TMP_Text moveCountText;
 
 	public enum Players
 	{
@@ -52,10 +53,11 @@ public class GameManager : MonoBehaviour
 		ResetBoard();
 		gameEnded = false;
 		winner = '-'; // Empty
-		winnerText.text = $"Winner: -";
+		winnerText.text = "Winner: -";
 		currentTurn = (char)Players.x;
 		turnText.text = "Current turn: X";
 		moveCount = 0;
+		moveCountText.text = "Move count: 0";
 	} // Resets the game
 
 	void ResetBoard()
@@ -88,10 +90,10 @@ public class GameManager : MonoBehaviour
 
 		// Make the move on the board
 		board[move] = currentTurn.ToString();
+		moveCount++;
 
 		GameEndHandler();
 
-		moveCount++;
 		return true;
 	} // Makes the move on the board
 
@@ -137,6 +139,7 @@ public class GameManager : MonoBehaviour
 
 	void GameEndHandler()
 	{
+		moveCountText.text = $"Move count: {moveCount}";
 		if (GameHasWon(currentTurn.ToString()))
 		{
 			gameEnded = true;
