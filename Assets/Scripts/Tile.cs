@@ -17,14 +17,17 @@ public class Tile : MonoBehaviour
 		{
 			// If move count is NOT divisible by 2, then it's X turn
 			// We use this because of the inconvenience when the game ends - the currentTurn variable becomes '-'
-			rend.material.color = GameManager.instance.moveCount % 2 != 0 ? xColor : oColor;
+			// rend.material.color = GameManager.instance.moveCount % 2 != 0 ? xColor : oColor;
 		}
 	}
 	void Update()
 	{
-		if (GameManager.instance.moveCount == 0)
+		// Used for resetting the board
+		if (GameManager.instance.board[tileID] == string.Empty)
 		{
 			rend.material.color = Color.white;
+			return;
 		}
+		rend.material.color = GameManager.instance.board[tileID] == "x" ? xColor : oColor;
 	}
 }
