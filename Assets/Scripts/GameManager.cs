@@ -1,12 +1,15 @@
+using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
 	public static GameManager instance;
+	static readonly int targetFrameRate = 60;
 	void Awake()
 	{
-		Application.targetFrameRate = 60;
+		Application.targetFrameRate = targetFrameRate;
 
 		if (instance == null)
 		{
@@ -73,46 +76,73 @@ public class GameManager : MonoBehaviour
 	{
 		if (player == (char)Players.x) return (char)Players.o;
 		return (char)Players.x;
-	} // Returns the opposite player from the Players enum
+	} // Returns the opposite player from the Players enum. For example: x -> o OR o -> x
 
-	public bool Move(int move)
+	public List<int> GetEmptyPositions(string[] currentBoard)
+	{
+		List<int> emptyPositions = new List<int>();
+
+		for (int i = 0; i < currentBoard.Length; i++)
+		{
+			if (IsEmpty(currentBoard, i))
+			{
+				emptyPositions.Add(i);
+			}
+		}
+		return emptyPositions;
+	} // Returns a list of empty positions of a given board
+
+	public bool IsEmpty(string[] currentBoard, int tile)
+	{
+		return currentBoard[tile] == String.Empty;
+	} // Returns true if the tile of the board is empty
+
+	public bool Move(int tile)
 	{
 		if (gameEnded) return false;
 		// Check if the move is valid, if not valid return false.
-		if (move is < 0 or > 9)
+		if (tile is < 0 or > 9)
 		{
 			return false;
 		}
-		if (board[move] != string.Empty)
+		if (!IsEmpty(board, tile))
 		{
 			return false;
 		}
 
 		// Make the move on the board
-		board[move] = currentTurn.ToString();
+		board[tile] = currentTurn.ToString();
 		moveCount++;
 
-		GameEndHandler();
+		GameEndHandler(currentTurn);
 
 		return true;
 	} // Makes the move on the board
 
-	bool GameIsDraw()
+	public bool GameIsDraw(string[] currentBoard)
 	{
-		for (int i = 0; i < 9; i++)
+		return GetEmptyPositions(currentBoard).Count == 0;
+
+		// Might be (almost nothing) faster, because it exits the loop the moment it finds an empty tile
+		/*
+		 for (int i = 0; i < 9; i++)
 		{
-			if (board[i] == string.Empty)
-				return false; // Empty cell found, game is not a draw
+			if (IsEmpty(currentBoard, i))
+				return false; // Empty tile found, game is not a draw
 		}
 		return true;
+		*/
 	} // Checks if the game is tied
 
-	bool GameHasWon(string player)
+	public bool GameHasWon(string[] currentBoard, char player)
 	{
+		string p = player.ToString();
+		string[] cb = currentBoard;
+
 		// Check rows
 		for (int i = 0; i < 3; i++)
 		{
-			if (board[i * 3] == player && board[i * 3 + 1] == player && board[i * 3 + 2] == player)
+			if (cb[i * 3] == p && cb[i * 3 + 1] == p && cb[i * 3 + 2] == p)
 			{
 				return true;
 			}
@@ -121,41 +151,40 @@ public class GameManager : MonoBehaviour
 		// Check columns
 		for (int i = 0; i < 3; i++)
 		{
-			if (board[i] == player && board[i + 3] == player && board[i + 6] == player)
+			if (cb[i] == p && cb[i + 3] == p && cb[i + 6] == p)
 			{
 				return true;
 			}
 		}
 
 		// Check diagonals
-		if (board[0] == player && board[4] == player && board[8] == player)
+		if (cb[0] == p && cb[4] == p && cb[8] == p)
 		{
 			return true;
 		}
 
 		// No win found
-		return board[2] == player && board[4] == player && board[6] == player;
+		return cb[2] == p && cb[4] == p && cb[6] == p;
 	} // Returns true if the player won
 
-	void GameEndHandler()
+	void GameEndHandler(char turn)
 	{
 		moveCountText.text = $"Move count: {moveCount}";
-		if (GameHasWon(currentTurn.ToString()))
+		if (GameHasWon(board, turn))
 		{
 			gameEnded = true;
-			winner = currentTurn;
+			winner = turn;
 			winnerText.text = $"Winner: {winner.ToString().ToUpper()}";
 			currentTurn = '-';
 			turnText.text = "Current turn: -";
 			return;
 		}
-		
+
 		currentTurn = OppositePlayer(currentTurn);
 		turnText.text = $"Current turn: {currentTurn.ToString().ToUpper()}";
 
-		if (!GameIsDraw())
-			return;
-		
+		if (!GameIsDraw(board)) return;
+
 		gameEnded = true;
 		winner = '-';
 		winnerText.text = "Winner: DRAW";

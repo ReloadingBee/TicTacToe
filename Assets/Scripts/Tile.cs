@@ -1,6 +1,8 @@
 using UnityEngine;
 public class Tile : MonoBehaviour
 {
+	public GameManager gameManager;
+	
 	public int tileID;
 	public Color xColor;
 	public Color oColor;
@@ -8,6 +10,7 @@ public class Tile : MonoBehaviour
 
 	void Start()
 	{
+		gameManager = GameManager.instance;
 		rend = GetComponent<Renderer>();
 	}
 
@@ -17,13 +20,13 @@ public class Tile : MonoBehaviour
 	}
 	void Update()
 	{
-		// Empty tile
-		if (GameManager.instance.board[tileID] == string.Empty)
+		// Empty tile is White
+		if(gameManager.IsEmpty(gameManager.board, tileID))
 		{
 			rend.material.color = Color.white;
 			return;
 		}
 		
-		rend.material.color = GameManager.instance.board[tileID] == "x" ? xColor : oColor;
+		rend.material.color = gameManager.board[tileID] == "x" ? xColor : oColor;
 	}
 }
