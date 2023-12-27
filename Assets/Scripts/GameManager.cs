@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
-	void InitializeGame()
+	public void InitializeGame()
 	{
 		ResetBoard();
 		gameEnded = false;
