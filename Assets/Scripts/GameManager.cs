@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
 		}
 	} // Resets the board to it's starting position
 
-	static char OppositePlayer(char player)
+	public char OppositePlayer(char player)
 	{
 		if (player == (char)Players.x) return (char)Players.o;
 		return (char)Players.x;
@@ -103,6 +103,7 @@ public class GameManager : MonoBehaviour
 		// Check if the move is valid, if not valid return false.
 		if (tile is < 0 or > 9)
 		{
+			throw new ArgumentOutOfRangeException(nameof(tile), "Invalid tile index. It should be between 0 and 8."); // ChatGPT
 			return false;
 		}
 		if (!IsEmpty(board, tile))
