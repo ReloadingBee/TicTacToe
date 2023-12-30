@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class MinimaxBot : MonoBehaviour
@@ -55,15 +56,13 @@ public class MinimaxBot : MonoBehaviour
 		#endregion
 
 		int bestVal;
-		var bestMove = -1;
+		List<int> bestMoves = new List<int>();
 		if (isMaximizingPlayer) // BOT
 		{
 			bestVal = -winValue;
 			// Loop through every empty position
 			foreach (var move in gameManager.GetEmptyPositions(currentBoard))
 			{
-				if (bestMove == -1) bestMove = move;
-				
 				currentBoard[move] = player.ToString(); // Make the move on the board
 				var value = Minimax(currentBoard, depth + 1, false, maxDepth);
 				currentBoard[move] = string.Empty; // Undo move
@@ -72,18 +71,15 @@ public class MinimaxBot : MonoBehaviour
 				{
 					if (value == bestVal)
 					{
-						// Randomize moves that are equally as good
-						// Leads to more variety
-						if (!(Random.Range(0f, 1f) > 1f / gameManager.GetEmptyPositions(currentBoard).Count))
-							continue;
-						bestVal = value;
-						bestMove = move;
+						// If the move is as good as other moves, add it to the list
+						bestMoves.Add(move);
 					}
 					else if (value > bestVal)
 					{
-						// Mathf.Max(bestVal, value)
+						// If the move is BETTER than the rest, delete the rest and add it to the list
 						bestVal = value;
-						bestMove = move;
+						bestMoves.Clear();
+						bestMoves.Add(move);
 					}
 				}
 				else
@@ -92,8 +88,8 @@ public class MinimaxBot : MonoBehaviour
 					bestVal = Mathf.Max(bestVal, value);
 				}
 			}
-			// Return the best value or the best move if it's the master depth
-			return depth == masterDepth ? bestMove : bestVal;
+			// Randomly chooses a move from bestMoves list
+			return depth == masterDepth ? bestMoves[Random.Range(0, bestMoves.Count)] : bestVal;
 		}
 		else // OPPONENT
 		{
