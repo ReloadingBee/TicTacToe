@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
 	public static GameManager instance;
 	static readonly int targetFrameRate = 60;
+	bool finishedInitializing;
 	void Awake()
 	{
 		Application.targetFrameRate = targetFrameRate;
@@ -28,6 +29,10 @@ public class GameManager : MonoBehaviour
 	public char winner;
 	public int moveCount;
 
+	const float moveCooldown = 0.5f;
+	public bool isCooldownEnabled;
+	public float remainingCooldown;
+
 	public TMP_Text turnText;
 	public TMP_Text winnerText;
 	public TMP_Text moveCountText;
@@ -37,9 +42,9 @@ public class GameManager : MonoBehaviour
 		x = 'x',
 		o = 'o'
 	} // To make everyone's life harder :)
-
 	void Start()
 	{
+		board = new string[9];
 		InitializeGame();
 	}
 
@@ -49,30 +54,50 @@ public class GameManager : MonoBehaviour
 		{
 			InitializeGame();
 		}
+
+		if (isCooldownEnabled)
+		{
+			remainingCooldown -= Time.deltaTime;
+			if (remainingCooldown <= 0f)
+			{
+				remainingCooldown = 0f;
+				isCooldownEnabled = false;
+			}
+		}
+	}
+
+	public void EnableCooldown(float cooldown)
+	{
+		remainingCooldown = cooldown;
+		isCooldownEnabled = true;
 	}
 
 	public void InitializeGame()
 	{
+		finishedInitializing = false;
 		ResetBoard();
-		gameEnded = false;
-		winner = '-'; // Empty
 		winnerText.text = "Winner: -";
-		currentTurn = (char)Players.x;
 		turnText.text = "Current turn: X";
 		moveCount = 0;
 		moveCountText.text = "Move count: 0";
+		
+		winner = '-'; // Empty
+		currentTurn = (char)Players.x;
+		gameEnded = false;
+		finishedInitializing = true;
+		
+		EnableCooldown(1f);
 	} // Resets the game
 
 	void ResetBoard()
 	{
-		board = new string[9];
 		for (int i = 0; i < 9; i++)
 		{
 			board[i] = string.Empty;
 		}
 	} // Resets the board to it's starting position
 
-	public char OppositePlayer(char player)
+	public static char OppositePlayer(char player)
 	{
 		if (player == (char)Players.x) return (char)Players.o;
 		return (char)Players.x;
@@ -99,12 +124,13 @@ public class GameManager : MonoBehaviour
 
 	public bool Move(int tile)
 	{
-		if (gameEnded) return false;
+		if (gameEnded || isCooldownEnabled) return false;
+		
 		// Check if the move is valid, if not valid return false.
 		if (tile is < 0 or > 9)
 		{
-			throw new ArgumentOutOfRangeException(nameof(tile), "Invalid tile index. It should be between 0 and 8."); // ChatGPT
-			return false;
+			throw new ArgumentOutOfRangeException(nameof(tile), "Invalid tile index. It should be between 0 and 8.");
+			//return false;
 		}
 		if (!IsEmpty(board, tile))
 		{
@@ -114,7 +140,8 @@ public class GameManager : MonoBehaviour
 		// Make the move on the board
 		board[tile] = currentTurn.ToString();
 		moveCount++;
-
+		EnableCooldown(moveCooldown);
+		
 		GameEndHandler(currentTurn);
 
 		return true;

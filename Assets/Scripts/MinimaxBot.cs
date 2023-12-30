@@ -10,6 +10,7 @@ public class MinimaxBot : MonoBehaviour
 
 	public bool useDepthLimit;
 	public int depthLimit;
+	const int maxDepth = 10;
 	void Start()
 	{
 		gameManager = GameManager.instance;
@@ -23,13 +24,12 @@ public class MinimaxBot : MonoBehaviour
 	void Move()
 	{
 		// Quit if it's not my turn!
-		if (gameManager.gameEnded || gameManager.currentTurn != player) return;
-
-		int bestMove = Minimax(gameManager.board, 0, true, useDepthLimit ? depthLimit : 10);
+		if (gameManager.isCooldownEnabled || gameManager.gameEnded || gameManager.currentTurn != player) return;
+		var bestMove = Minimax(gameManager.board, 0, true, useDepthLimit ? depthLimit : maxDepth);
 		gameManager.Move(bestMove);
 	}
 
-	int Minimax(string[] currentBoard, int depth, bool isMaximizingPlayer, int maxDepth = 10)
+	int Minimax(string[] currentBoard, int depth, bool isMaximizingPlayer, int mMaxDepth = maxDepth)
 	{
 		// isMaximizingPlayer: TRUE = BOT; FALSE = OPPONENT
 
@@ -40,23 +40,23 @@ public class MinimaxBot : MonoBehaviour
 		#region Final Values
 		// Return good values for winning and bad values for losing
 		// Limit the search depth
-		if (gameManager.GameHasWon(currentBoard, isMaximizingPlayer ? player : gameManager.OppositePlayer(player)))
+		if (gameManager.GameHasWon(currentBoard, isMaximizingPlayer ? player : GameManager.OppositePlayer(player)))
 		{
 			return isMaximizingPlayer ? winValue - depth : -winValue + depth;
 		}
 		// Draw
-		if (!gameManager.GameHasWon(currentBoard, player) && !gameManager.GameHasWon(currentBoard, gameManager.OppositePlayer(player)) && gameManager.GameIsDraw(currentBoard))
+		if (!gameManager.GameHasWon(currentBoard, player) && !gameManager.GameHasWon(currentBoard, GameManager.OppositePlayer(player)) && gameManager.GameIsDraw(currentBoard))
 		{
 			return drawValue;
 		}
-		if (depth >= maxDepth)
+		if (depth >= mMaxDepth)
 		{
 			return drawValue;
 		}
 		#endregion
 
 		int bestVal;
-		List<int> bestMoves = new List<int>();
+		var bestMoves = new List<int>();
 		if (isMaximizingPlayer) // BOT
 		{
 			bestVal = -winValue;
@@ -64,7 +64,7 @@ public class MinimaxBot : MonoBehaviour
 			foreach (var move in gameManager.GetEmptyPositions(currentBoard))
 			{
 				currentBoard[move] = player.ToString(); // Make the move on the board
-				var value = Minimax(currentBoard, depth + 1, false, maxDepth);
+				var value = Minimax(currentBoard, depth + 1, false, mMaxDepth);
 				currentBoard[move] = string.Empty; // Undo move
 
 				if (depth == masterDepth)
@@ -95,10 +95,10 @@ public class MinimaxBot : MonoBehaviour
 		{
 			bestVal = winValue;
 			// Loop through every empty position
-			foreach (int move in gameManager.GetEmptyPositions(currentBoard))
+			foreach (var move in gameManager.GetEmptyPositions(currentBoard))
 			{
-				currentBoard[move] = gameManager.OppositePlayer(player).ToString(); // Make the move on the board
-				int value = Minimax(currentBoard, depth + 1, true, maxDepth);
+				currentBoard[move] = GameManager.OppositePlayer(player).ToString(); // Make the move on the board
+				var value = Minimax(currentBoard, depth + 1, true, mMaxDepth);
 				currentBoard[move] = string.Empty; // Undo move
 
 				bestVal = Mathf.Min(bestVal, value);
