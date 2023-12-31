@@ -5,19 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0f9c6a79-b87c-4fe6-a2d1-eb767ddc413e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Art/SVG.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/SVG/O.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/SVG/O.svg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/SVG/X.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/SVG/X.svg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjectSettings/BurstAotSettings_StandaloneWindows.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjectSettings/CommonBurstAotSettings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TicTacToe/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TicTacToe/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/MinimaxBot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MinimaxBot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +121,8 @@
       <workItem from="1703861489501" duration="6000" />
       <workItem from="1703937059881" duration="3000" />
       <workItem from="1703941713507" duration="1622000" />
-      <workItem from="1703945641155" duration="10586000" />
+      <workItem from="1703945641155" duration="10884000" />
+      <workItem from="1704038801332" duration="791000" />
     </task>
     <task id="LOCAL-00001" summary="Keyboard shortcut (R) to reset the game">
       <created>1703494104040</created>

@@ -8,9 +8,12 @@ public class MinimaxBot : MonoBehaviour
 	public GameManager.Players symbol = GameManager.Players.o;
 	char player;
 
+	public float evaluation;
+
 	public bool useDepthLimit;
 	public int depthLimit;
 	const int maxDepth = 10;
+	const int evalOffset = 2; // Master depth + First move
 	void Start()
 	{
 		gameManager = GameManager.instance;
@@ -42,7 +45,7 @@ public class MinimaxBot : MonoBehaviour
 		// Limit the search depth
 		if (gameManager.GameHasWon(currentBoard, isMaximizingPlayer ? player : GameManager.OppositePlayer(player)))
 		{
-			return isMaximizingPlayer ? winValue - depth : -winValue + depth;
+			return isMaximizingPlayer ? winValue - depth + evalOffset : -winValue + depth - evalOffset;
 		}
 		// Draw
 		if (!gameManager.GameHasWon(currentBoard, player) && !gameManager.GameHasWon(currentBoard, GameManager.OppositePlayer(player)) && gameManager.GameIsDraw(currentBoard))
@@ -78,6 +81,7 @@ public class MinimaxBot : MonoBehaviour
 					{
 						// If the move is BETTER than the rest, delete the rest and add it to the list
 						bestVal = value;
+						evaluation = bestVal;
 						bestMoves.Clear();
 						bestMoves.Add(move);
 					}
