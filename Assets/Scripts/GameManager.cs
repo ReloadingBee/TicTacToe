@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
@@ -36,6 +37,10 @@ public class GameManager : MonoBehaviour
 	public TMP_Text turnText;
 	public TMP_Text winnerText;
 	public TMP_Text moveCountText;
+	
+	// Sounds
+	public List<AudioClip> moveSounds;
+	AudioSource source;
 
 	public enum Players
 	{
@@ -46,6 +51,7 @@ public class GameManager : MonoBehaviour
 	{
 		board = new string[9];
 		InitializeGame();
+		source = GetComponent<AudioSource>();
 	}
 
 	void Update()
@@ -140,6 +146,11 @@ public class GameManager : MonoBehaviour
 		// Make the move on the board
 		board[tile] = currentTurn.ToString();
 		moveCount++;
+
+		// Play random move sound
+		int sound = Random.Range(0, moveSounds.Count);
+		source.PlayOneShot(moveSounds[sound]);
+		
 		EnableCooldown(moveCooldown);
 		
 		GameEndHandler(currentTurn);

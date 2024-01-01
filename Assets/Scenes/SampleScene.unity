@@ -171,74 +171,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &515954422
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 515954424}
-  - component: {fileID: 515954423}
-  - component: {fileID: 515954425}
-  m_Layer: 0
-  m_Name: Game Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &515954423
+--- !u!114 &515954423 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 3826905273577022753, guid: 184b9b4b30d10a546b7f20d95acf122d, type: 3}
+  m_PrefabInstance: {fileID: 1998340163119946189}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 515954422}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e5202fe39ee08047b56b8aa90526cb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  board: []
-  currentTurn: 120
-  gameEnded: 0
-  winner: 100
-  moveCount: 0
-  isCooldownEnabled: 0
-  remainingCooldown: 0
-  turnText: {fileID: 941388287}
-  winnerText: {fileID: 1836113722}
-  moveCountText: {fileID: 903800726}
---- !u!4 &515954424
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 515954422}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &515954425
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 515954422}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4ffbbf1629f366409283955cf0bb0c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  restartDelayInSeconds: 1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2492,11 +2435,80 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1836113720}
   m_CullTransparentMesh: 1
+--- !u!1001 &1998340163119946189
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2107181692438098830, guid: 184b9b4b30d10a546b7f20d95acf122d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2107181692438098830, guid: 184b9b4b30d10a546b7f20d95acf122d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2107181692438098830, guid: 184b9b4b30d10a546b7f20d95acf122d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2107181692438098830, guid: 184b9b4b30d10a546b7f20d95acf122d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2107181692438098830, guid: 184b9b4b30d10a546b7f20d95acf122d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2107181692438098830, guid: 184b9b4b30d10a546b7f20d95acf122d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2107181692438098830, guid: 184b9b4b30d10a546b7f20d95acf122d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2107181692438098830, guid: 184b9b4b30d10a546b7f20d95acf122d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2107181692438098830, guid: 184b9b4b30d10a546b7f20d95acf122d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2107181692438098830, guid: 184b9b4b30d10a546b7f20d95acf122d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3826905273577022753, guid: 184b9b4b30d10a546b7f20d95acf122d, type: 3}
+      propertyPath: turnText
+      value: 
+      objectReference: {fileID: 941388287}
+    - target: {fileID: 3826905273577022753, guid: 184b9b4b30d10a546b7f20d95acf122d, type: 3}
+      propertyPath: winnerText
+      value: 
+      objectReference: {fileID: 1836113722}
+    - target: {fileID: 3826905273577022753, guid: 184b9b4b30d10a546b7f20d95acf122d, type: 3}
+      propertyPath: moveCountText
+      value: 
+      objectReference: {fileID: 903800726}
+    - target: {fileID: 7236705069880340423, guid: 184b9b4b30d10a546b7f20d95acf122d, type: 3}
+      propertyPath: m_Name
+      value: Game Manager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 184b9b4b30d10a546b7f20d95acf122d, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 515954424}
+  - {fileID: 1998340163119946189}
   - {fileID: 519420032}
   - {fileID: 1157755511}
   - {fileID: 1216864739}
