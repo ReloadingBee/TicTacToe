@@ -34,6 +34,12 @@ public class MinimaxBot : MonoBehaviour
 
 	int Minimax(string[] currentBoard, int depth, bool isMaximizingPlayer, int mMaxDepth = maxDepth)
 	{
+		// Optimization for the first move, move randomly instead of calculating the whole game tree
+		if (gameManager.moveCount == 0)
+		{
+			return Random.Range(0, 9);
+		}
+		
 		// isMaximizingPlayer: TRUE = BOT; FALSE = OPPONENT
 
 		const int masterDepth = 0;
