@@ -161,16 +161,6 @@ public class GameManager : MonoBehaviour
 	public bool GameIsDraw(string[] currentBoard)
 	{
 		return GetEmptyPositions(currentBoard).Count == 0;
-
-		// Might be (almost nothing) faster, because it exits the loop the moment it finds an empty tile
-		/*
-		 for (int i = 0; i < 9; i++)
-		{
-			if (IsEmpty(currentBoard, i))
-				return false; // Empty tile found, game is not a draw
-		}
-		return true;
-		*/
 	} // Checks if the game is tied
 
 	public bool GameHasWon(string[] currentBoard, char player)

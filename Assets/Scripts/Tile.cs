@@ -1,15 +1,15 @@
 using UnityEngine;
 public class Tile : MonoBehaviour
 {
-	public GameManager gameManager;
+	GameManager gameManager;
 
 	public GameObject xPrefab;
 	public GameObject oPrefab;
 	
-	[SerializeField] bool isChildAlive;
 	GameObject child;
+	bool isChildAlive;
 	const float childScale = 0.2f;
-	const float speed = 5;
+	const float childAnimationSpeed = 5;
 
 	public int tileID;
 
@@ -26,12 +26,11 @@ public class Tile : MonoBehaviour
 	{
 		if (gameManager.IsEmpty(gameManager.board, tileID))
 		{
-			if (isChildAlive)
-			{
-				// Destroy the child
-				Destroy(child);
-				isChildAlive = false;
-			}
+			if (!isChildAlive)
+				return;
+			// Destroy the child
+			Destroy(child);
+			isChildAlive = false;
 			return;
 		}
 		if (isChildAlive) HandleChild();
@@ -45,7 +44,7 @@ public class Tile : MonoBehaviour
 	}
 	void HandleChild()
 	{
-		// Ease-out
-		child.transform.localScale = Vector3.Lerp(child.transform.localScale,Vector3.one * childScale, speed * Time.deltaTime);
+		// Ease-out animation
+		child.transform.localScale = Vector3.Lerp(child.transform.localScale,Vector3.one * childScale, childAnimationSpeed * Time.deltaTime);
 	}
 }

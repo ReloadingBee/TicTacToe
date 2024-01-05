@@ -2495,6 +2495,14 @@ PrefabInstance:
       propertyPath: moveCountText
       value: 
       objectReference: {fileID: 903800726}
+    - target: {fileID: 6937426606290573819, guid: 184b9b4b30d10a546b7f20d95acf122d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6937426606290573819, guid: 184b9b4b30d10a546b7f20d95acf122d, type: 3}
+      propertyPath: restartDelayInSeconds
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7236705069880340423, guid: 184b9b4b30d10a546b7f20d95acf122d, type: 3}
       propertyPath: m_Name
       value: Game Manager
