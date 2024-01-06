@@ -171,17 +171,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &515954423 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3826905273577022753, guid: 184b9b4b30d10a546b7f20d95acf122d, type: 3}
+--- !u!1 &499417994 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7236705069880340423, guid: 184b9b4b30d10a546b7f20d95acf122d, type: 3}
   m_PrefabInstance: {fileID: 1998340163119946189}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+--- !u!114 &515954427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 499417994}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e5202fe39ee08047b56b8aa90526cb6, type: 3}
+  m_Script: {fileID: 11500000, guid: 50432286cd9de564789d6336ba1fa40a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetFrameRate: 60
+  musicVolume: 1
+  effectVolume: 1
+  useAnimations: 1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,10 +382,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5f8b33f7f29b124cbcf31668d19205f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 515954423}
   xPrefab: {fileID: -3888481672020999207, guid: 358af25f377f1fa40aab62fb5730d524, type: 3}
   oPrefab: {fileID: -3888481672020999207, guid: 2abdcd33be03433489a5545a22f0db6a, type: 3}
-  isChildAlive: 0
   tileID: 0
 --- !u!61 &619462948
 BoxCollider2D:
@@ -520,10 +528,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5f8b33f7f29b124cbcf31668d19205f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 515954423}
   xPrefab: {fileID: -3888481672020999207, guid: 358af25f377f1fa40aab62fb5730d524, type: 3}
   oPrefab: {fileID: -3888481672020999207, guid: 2abdcd33be03433489a5545a22f0db6a, type: 3}
-  isChildAlive: 0
   tileID: 1
 --- !u!61 &728881752
 BoxCollider2D:
@@ -668,10 +674,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5f8b33f7f29b124cbcf31668d19205f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 515954423}
   xPrefab: {fileID: -3888481672020999207, guid: 358af25f377f1fa40aab62fb5730d524, type: 3}
   oPrefab: {fileID: -3888481672020999207, guid: 2abdcd33be03433489a5545a22f0db6a, type: 3}
-  isChildAlive: 0
   tileID: 5
 --- !u!61 &830843892
 BoxCollider2D:
@@ -809,10 +813,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5f8b33f7f29b124cbcf31668d19205f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 515954423}
   xPrefab: {fileID: -3888481672020999207, guid: 358af25f377f1fa40aab62fb5730d524, type: 3}
   oPrefab: {fileID: -3888481672020999207, guid: 2abdcd33be03433489a5545a22f0db6a, type: 3}
-  isChildAlive: 0
   tileID: 8
 --- !u!212 &857525210
 SpriteRenderer:
@@ -1098,10 +1100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5f8b33f7f29b124cbcf31668d19205f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 515954423}
   xPrefab: {fileID: -3888481672020999207, guid: 358af25f377f1fa40aab62fb5730d524, type: 3}
   oPrefab: {fileID: -3888481672020999207, guid: 2abdcd33be03433489a5545a22f0db6a, type: 3}
-  isChildAlive: 0
   tileID: 2
 --- !u!61 &934751613
 BoxCollider2D:
@@ -1380,10 +1380,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5f8b33f7f29b124cbcf31668d19205f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 515954423}
   xPrefab: {fileID: -3888481672020999207, guid: 358af25f377f1fa40aab62fb5730d524, type: 3}
   oPrefab: {fileID: -3888481672020999207, guid: 2abdcd33be03433489a5545a22f0db6a, type: 3}
-  isChildAlive: 0
   tileID: 4
 --- !u!61 &1056324762
 BoxCollider2D:
@@ -1622,10 +1620,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5f8b33f7f29b124cbcf31668d19205f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 515954423}
   xPrefab: {fileID: -3888481672020999207, guid: 358af25f377f1fa40aab62fb5730d524, type: 3}
   oPrefab: {fileID: -3888481672020999207, guid: 2abdcd33be03433489a5545a22f0db6a, type: 3}
-  isChildAlive: 0
   tileID: 3
 --- !u!61 &1193200076
 BoxCollider2D:
@@ -2055,10 +2051,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5f8b33f7f29b124cbcf31668d19205f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 515954423}
   xPrefab: {fileID: -3888481672020999207, guid: 358af25f377f1fa40aab62fb5730d524, type: 3}
   oPrefab: {fileID: -3888481672020999207, guid: 2abdcd33be03433489a5545a22f0db6a, type: 3}
-  isChildAlive: 0
   tileID: 6
 --- !u!61 &1622281579
 BoxCollider2D:
@@ -2196,10 +2190,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5f8b33f7f29b124cbcf31668d19205f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 515954423}
   xPrefab: {fileID: -3888481672020999207, guid: 358af25f377f1fa40aab62fb5730d524, type: 3}
   oPrefab: {fileID: -3888481672020999207, guid: 2abdcd33be03433489a5545a22f0db6a, type: 3}
-  isChildAlive: 0
   tileID: 7
 --- !u!212 &1707766632
 SpriteRenderer:
@@ -2299,8 +2291,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   symbol: 111
   evaluation: 0
-  useDepthLimit: 1
-  depthLimit: 5
+  useDepthLimit: 0
+  depthLimit: 0
 --- !u!1 &1836113720
 GameObject:
   m_ObjectHideFlags: 0
@@ -2510,7 +2502,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7236705069880340423, guid: 184b9b4b30d10a546b7f20d95acf122d, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 515954427}
   m_SourcePrefab: {fileID: 100100000, guid: 184b9b4b30d10a546b7f20d95acf122d, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0f9c6a79-b87c-4fe6-a2d1-eb767ddc413e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SETTINGS.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SETTINGS.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TicTacToe/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TicTacToe/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AutoRestart.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AutoRestart.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MinimaxBot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MinimaxBot.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tile.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,6 +30,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RandomBot.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RandomFasterBot.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Settings.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Tile.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -131,7 +132,10 @@
       <workItem from="1704223381933" duration="1018000" />
       <workItem from="1704226498277" duration="613000" />
       <workItem from="1704300001175" duration="1638000" />
-      <workItem from="1704475398138" duration="1037000" />
+      <workItem from="1704475398138" duration="1198000" />
+      <workItem from="1704560076776" duration="348000" />
+      <workItem from="1704560473749" duration="1275000" />
+      <workItem from="1704570645234" duration="1485000" />
     </task>
     <task id="LOCAL-00001" summary="Keyboard shortcut (R) to reset the game">
       <created>1703494104040</created>

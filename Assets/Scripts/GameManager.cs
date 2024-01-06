@@ -7,11 +7,12 @@ using Random = UnityEngine.Random;
 public class GameManager : MonoBehaviour
 {
 	public static GameManager instance;
-	static readonly int targetFrameRate = 60;
+	Settings settings;
 	bool finishedInitializing;
 	void Awake()
 	{
-		Application.targetFrameRate = targetFrameRate;
+		settings = Settings.instance;
+		Application.targetFrameRate = settings.targetFrameRate;
 
 		if (instance == null)
 		{
@@ -125,7 +126,7 @@ public class GameManager : MonoBehaviour
 
 	public bool IsEmpty(string[] currentBoard, int tile)
 	{
-		return currentBoard[tile] == String.Empty;
+		return currentBoard[tile] == string.Empty;
 	} // Returns true if the tile of the board is empty
 
 	public bool Move(int tile)
