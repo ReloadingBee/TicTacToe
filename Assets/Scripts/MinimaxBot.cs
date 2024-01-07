@@ -48,7 +48,6 @@ public class MinimaxBot : MonoBehaviour
 
 		#region Final Values
 		// Return good values for winning and bad values for losing
-		// Limit the search depth
 		if (gameManager.GameHasWon(currentBoard, isMaximizingPlayer ? player : GameManager.OppositePlayer(player)))
 		{
 			return isMaximizingPlayer ? winValue - depth + evalOffset : -winValue + depth - evalOffset;
@@ -58,6 +57,7 @@ public class MinimaxBot : MonoBehaviour
 		{
 			return drawValue;
 		}
+		// Limit the search depth
 		if (depth >= mMaxDepth)
 		{
 			return drawValue;
