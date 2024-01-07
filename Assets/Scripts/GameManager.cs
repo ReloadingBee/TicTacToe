@@ -2,12 +2,14 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
 	public static GameManager instance;
 	Settings settings;
+
 	bool finishedInitializing;
 	void Awake()
 	{
@@ -51,7 +53,7 @@ public class GameManager : MonoBehaviour
 	void Start()
 	{
 		board = new string[9];
-		InitializeGame();
+		if(SceneManager.GetActiveScene().name == "SampleScene") InitializeGame();
 		source = GetComponent<AudioSource>();
 	}
 
