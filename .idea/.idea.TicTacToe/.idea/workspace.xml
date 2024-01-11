@@ -5,11 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0f9c6a79-b87c-4fe6-a2d1-eb767ddc413e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SETTINGS.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SETTINGS.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/SVG/Checkboxes.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/SVG/Checkboxes/DarkBlank.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/SVG/Checkboxes/DarkBlank.svg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/SVG/Checkboxes/DarkFilled.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/SVG/Checkboxes/DarkFilled.svg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/SVG/Checkboxes/LightBlank.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/SVG/Checkboxes/LightBlank.svg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/SVG/Checkboxes/LightFilled.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/SVG/Checkboxes/LightFilled.svg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/SVG/Gears.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/SVG/Gears/Gear1.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/SVG/Gears/Gear1.svg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/SVG/Gears/Gear2.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/SVG/Gears/Gear2.svg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/SVG/Gears/Gear3.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/SVG/Gears/Gear3.svg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Settings.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Settings.prefab.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TicTacToe/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TicTacToe/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/SVG/Title.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/SVG/Title.svg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SETTINGS.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SETTINGS.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Settings/sBoolean.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Settings/sBoolean.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Settings/sButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Settings/sButton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Settings/sMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Settings/sMenu.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tile.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -135,7 +157,9 @@
       <workItem from="1704475398138" duration="1198000" />
       <workItem from="1704560076776" duration="348000" />
       <workItem from="1704560473749" duration="1275000" />
-      <workItem from="1704570645234" duration="1485000" />
+      <workItem from="1704570645234" duration="1576000" />
+      <workItem from="1704911005798" duration="382000" />
+      <workItem from="1704982492332" duration="4144000" />
     </task>
     <task id="LOCAL-00001" summary="Keyboard shortcut (R) to reset the game">
       <created>1703494104040</created>

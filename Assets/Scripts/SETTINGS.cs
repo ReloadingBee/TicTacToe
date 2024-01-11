@@ -21,5 +21,5 @@ public class Settings : MonoBehaviour
     public float musicVolume = 1f; // 0.0f - 1.0f
     public float effectVolume = 1f;
 
-    public bool useAnimations = true;
+    public bool disableAnimations;
 }

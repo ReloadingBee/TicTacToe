@@ -3,32 +3,43 @@ using System.Collections.Generic;
 
 public class sMenu : MonoBehaviour
 {
-    Settings settings;
-
     public static sMenu instance;
+    Settings settings;
     void Awake()
     {
-        settings = Settings.instance;
-        instance = this;
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     } // Singleton
 
-    public bool isMenuEnabled = false;
+    public bool isMenuEnabled;
     public GameObject mask;
+    public GameObject elements;
 
     public List<bool> booleanSettings;
-    private void Start()
+    void Start()
     {
-        booleanSettings = new List<bool>();
-
-        // 0 - Disable animations
-        booleanSettings.Add(false);
+        settings = Settings.instance;
+        
+        // 1. Disable Animations
+        booleanSettings = new List<bool> {false};
     }
 
-    private void Update()
+    void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape)) ToggleMenu();
+        
+        elements.SetActive(isMenuEnabled);
+        
         if (!isMenuEnabled) return;
 
-        settings.useAnimations = booleanSettings[0];
+        settings.disableAnimations = booleanSettings[0];
     }
 
     public void EnableMenu()

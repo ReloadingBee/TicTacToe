@@ -4,12 +4,12 @@ public class sButton : MonoBehaviour
 {
     sMenu menu;
 
-    private void Start()
+    void Start()
     {
         menu = sMenu.instance;
     }
 
-    private void OnMouseDown()
+    void OnMouseDown()
     {
         menu.ToggleMenu();
     }

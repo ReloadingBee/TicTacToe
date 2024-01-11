@@ -4,15 +4,24 @@ public class sBoolean : MonoBehaviour
 {
     sMenu menu;
 
-    private void Start()
+    void Start()
     {
         menu = sMenu.instance;
     }
 
     public int id;
     public bool isToggled = false;
+    
+    public GameObject filledCheckbox;
 
-    private void OnMouseDown()
+    void Update()
+    {
+        if (menu.isMenuEnabled)
+        {
+            filledCheckbox.SetActive(isToggled);
+        }
+    }
+    void OnMouseDown()
     {
         isToggled = !isToggled;
         menu.booleanSettings[id] = isToggled;
