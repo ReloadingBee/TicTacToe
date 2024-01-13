@@ -26,4 +26,18 @@ public class sBoolean : MonoBehaviour
         isToggled = !isToggled;
         menu.booleanSettings[id] = isToggled;
     }
+    
+    
+    SpriteRenderer spriteRenderer;
+    public Color filledCheckboxHoverColor = new Color(0.8f, 0.8f, 0.8f, 1f);
+    
+    void OnMouseOver()
+    {
+        spriteRenderer = filledCheckbox.GetComponent<SpriteRenderer>();
+        spriteRenderer.color = filledCheckboxHoverColor;
+    }
+    void OnMouseExit()
+    {
+        spriteRenderer.color = Color.white;
+    }
 }

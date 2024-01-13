@@ -14,7 +14,6 @@ public class GameManager : MonoBehaviour
 	void Awake()
 	{
 		settings = Settings.instance;
-		Application.targetFrameRate = settings.targetFrameRate;
 
 		if (instance == null)
 		{
@@ -59,20 +58,21 @@ public class GameManager : MonoBehaviour
 
 	void Update()
 	{
+		// Default targetFrameRate value is -1
+		Application.targetFrameRate = settings.limitFPS ? settings.targetFrameRate : -1;
+
 		if (Input.GetKeyDown(KeyCode.R))
 		{
 			InitializeGame();
 		}
 
-		if (isCooldownEnabled)
-		{
-			remainingCooldown -= Time.deltaTime;
-			if (remainingCooldown <= 0f)
-			{
-				remainingCooldown = 0f;
-				isCooldownEnabled = false;
-			}
-		}
+		if (!isCooldownEnabled)
+			return;
+		remainingCooldown -= Time.deltaTime;
+		if (!(remainingCooldown <= 0f))
+			return;
+		remainingCooldown = 0f;
+		isCooldownEnabled = false;
 	}
 
 	public void EnableCooldown(float cooldown)

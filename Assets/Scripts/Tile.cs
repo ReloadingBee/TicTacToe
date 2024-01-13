@@ -44,7 +44,7 @@ public class Tile : MonoBehaviour
 			child = Instantiate(gameManager.board[tileID] == GameManager.Players.x.ToString() ? xPrefab : oPrefab, this.transform);
 			
 			// Child scale
-			child.transform.localScale = settings.disableAnimations ? Vector3.zero : Vector3.one * childScale;
+			child.transform.localScale = settings.disableAnimations ? Vector3.one * childScale : Vector3.zero;
 			
 			isChildAlive = true;
 		}
@@ -54,7 +54,7 @@ public class Tile : MonoBehaviour
 		// If the size is already correct, exit
 		if (child.transform.localScale == Vector3.one * childScale) return;
 
-		if (settings.disableAnimations)
+		if (!settings.disableAnimations)
 		{
 			// Ease-out animation
 			child.transform.localScale = Vector3.Lerp(child.transform.localScale, Vector3.one * childScale, childAnimationSpeed * Time.deltaTime);

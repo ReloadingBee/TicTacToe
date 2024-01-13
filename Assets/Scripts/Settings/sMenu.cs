@@ -19,16 +19,21 @@ public class sMenu : MonoBehaviour
     } // Singleton
 
     public bool isMenuEnabled;
-    public GameObject mask;
+    public GameObject fade;
     public GameObject elements;
 
     public List<bool> booleanSettings;
+    public List<int> intSettings;
     void Start()
     {
         settings = Settings.instance;
         
         // 1. Disable Animations
-        booleanSettings = new List<bool> {false};
+        // 2. Limit FPS
+        booleanSettings = new List<bool> {false, false};
+        
+        // 1. Max FPS
+        intSettings = new List<int> {60};
     }
 
     void Update()
@@ -40,18 +45,20 @@ public class sMenu : MonoBehaviour
         if (!isMenuEnabled) return;
 
         settings.disableAnimations = booleanSettings[0];
+        settings.limitFPS = booleanSettings[1];
+        settings.targetFrameRate = intSettings[0];
     }
 
     public void EnableMenu()
     {
         isMenuEnabled = true;
-        mask.SetActive(true);
+        fade.SetActive(true);
     }
 
     public void DisableMenu()
     {
         isMenuEnabled = false;
-        mask.SetActive(false);
+        fade.SetActive(false);
     }
 
     public void ToggleMenu()
