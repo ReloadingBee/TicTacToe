@@ -7,6 +7,7 @@ public class sNumericalInput : MonoBehaviour
 	void Start()
 	{
 		menu = sMenu.instance;
+		typedText = value.ToString();
 	}
 
 	public int id;
@@ -23,5 +24,67 @@ public class sNumericalInput : MonoBehaviour
 		menu.intSettings[id] = value;
 
 		text.text = value.ToString();
+
+		// Check if clicked outside of the input field
+		if(Input.GetMouseButtonDown(0) && !isMouseOver)
+        {
+			UpdateValue();
+		}
+		if(Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Escape))
+        {
+			UpdateValue();
+        }
+
+		if (!isInputKeyboard) return;
+
+		// WRITE
+		for (int i = 0; i < 10; i++)
+		{
+			if (Input.GetKeyDown(KeyCode.Alpha0 + i))
+			{
+				if(typedText.Length < 5) typedText += i;
+			}
+		}
+		// DELETE
+		if (Input.GetKeyDown(KeyCode.Backspace))
+		{
+			if (typedText.Length > 0)
+			{
+				typedText = typedText.Substring(0, typedText.Length - 1);
+			}
+		}
+		text.text = typedText.ToString();
 	}
+
+	void UpdateValue()
+    {
+		isInputKeyboard = false;
+
+		// Turn typedText into an int
+		// Also make it fit into the boundaries of lowerLimit & higherLimit
+		value = typedText.Length > 0 ? int.Parse(typedText) : lowerLimit;
+		value = Mathf.Clamp(value, lowerLimit, higherLimit);
+
+		// Update the text
+		typedText = value.ToString();
+		text.text = typedText;
+		menu.isTyping = false;
+	}
+
+	public bool isInputKeyboard;
+	public string typedText;
+
+	public bool isMouseOver;
+
+	private void OnMouseDown()
+    {
+		typedText = value.ToString();
+		menu.isTyping = true;
+		isMouseOver = true;
+		isInputKeyboard = true;
+    }
+    private void OnMouseExit()
+    {
+		isMouseOver = false;
+    }
 }

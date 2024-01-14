@@ -24,6 +24,8 @@ public class sMenu : MonoBehaviour
 
     public List<bool> booleanSettings;
     public List<int> intSettings;
+
+    public bool isTyping;
     void Start()
     {
         settings = Settings.instance;
@@ -38,7 +40,14 @@ public class sMenu : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) ToggleMenu();
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isTyping) isTyping = false;
+            else
+            {
+                ToggleMenu();
+            }
+        }
         
         elements.SetActive(isMenuEnabled);
         
