@@ -69,13 +69,13 @@ public class GameManager : MonoBehaviour
 		if (!isCooldownEnabled)
 			return;
 		remainingCooldown -= Time.deltaTime;
-		if (!(remainingCooldown <= 0f))
+		if (remainingCooldown > 0f)
 			return;
 		remainingCooldown = 0f;
 		isCooldownEnabled = false;
 	}
 
-	public void EnableCooldown(float cooldown)
+	void EnableCooldown(float cooldown)
 	{
 		remainingCooldown = cooldown;
 		isCooldownEnabled = true;

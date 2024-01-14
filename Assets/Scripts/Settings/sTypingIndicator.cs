@@ -3,25 +3,29 @@ using UnityEngine;
 public class sTypingIndicator : MonoBehaviour
 {
     public sNumericalInput parent;
-    public float charWidth = 0.2f;
+    const float charWidth = 0.2f;
 
     SpriteRenderer rend;
 
-    private void Start()
+    float transparency;
+    public float pingPongDuration = 0.5f;
+
+    void Start()
     {
         rend = GetComponent<SpriteRenderer>();
     }
 
     void Update()
     {
-        if(parent.isInputKeyboard)
-        {
-            rend.enabled = true;
-            transform.position = new Vector3(parent.typedText.Length * charWidth, 0, 0) + parent.transform.position;
-        }
-        else
-        {
-            rend.enabled = false;
-        }
+        rend.enabled = parent.isActive;
+        if (!parent.isActive) return;
+        transform.position = new Vector3(parent.typedText.Length * charWidth, 0, 0) + parent.transform.position;
+
+        // Fading animation
+        transparency = Mathf.PingPong(Time.time / pingPongDuration, 1f);
+        
+        var newColor = rend.color;
+        newColor.a = transparency;
+        rend.color = newColor;
     }
 }

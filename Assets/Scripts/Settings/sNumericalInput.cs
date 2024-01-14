@@ -11,7 +11,7 @@ public class sNumericalInput : MonoBehaviour
 	}
 
 	public int id;
-	
+
 	public int value;
 	public int lowerLimit;
 	public int higherLimit;
@@ -25,24 +25,28 @@ public class sNumericalInput : MonoBehaviour
 
 		text.text = value.ToString();
 
-		// Check if clicked outside of the input field
-		if(Input.GetMouseButtonDown(0) && !isMouseOver)
-        {
-			UpdateValue();
+		if (isActive)
+		{
+			// Check if clicked outside of the input field
+			if (Input.GetMouseButtonDown(0) && !isMouseOver)
+			{
+				UpdateValue();
+			}
+			// Check if pressed Enter or Escape keys
+			if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Escape))
+			{
+				UpdateValue();
+			}
 		}
-		if(Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Escape))
-        {
-			UpdateValue();
-        }
 
-		if (!isInputKeyboard) return;
+		if (!isActive) return;
 
 		// WRITE
 		for (int i = 0; i < 10; i++)
 		{
 			if (Input.GetKeyDown(KeyCode.Alpha0 + i))
 			{
-				if(typedText.Length < 5) typedText += i;
+				if (typedText.Length < 5) typedText += i;
 			}
 		}
 		// DELETE
@@ -50,41 +54,41 @@ public class sNumericalInput : MonoBehaviour
 		{
 			if (typedText.Length > 0)
 			{
-				typedText = typedText.Substring(0, typedText.Length - 1);
+				typedText = typedText[..^1]; // Deletes the last character
 			}
 		}
-		text.text = typedText.ToString();
+		text.text = typedText;
 	}
 
 	void UpdateValue()
-    {
-		isInputKeyboard = false;
+	{
+		isActive = false;
 
 		// Turn typedText into an int
 		// Also make it fit into the boundaries of lowerLimit & higherLimit
 		value = typedText.Length > 0 ? int.Parse(typedText) : lowerLimit;
-		value = Mathf.Clamp(value, lowerLimit, higherLimit);
+		if (value > higherLimit) value = higherLimit;
 
 		// Update the text
 		typedText = value.ToString();
 		text.text = typedText;
-		menu.isTyping = false;
+		menu.ignoreEscaping = false;
 	}
 
-	public bool isInputKeyboard;
+	public bool isActive;
 	public string typedText;
 
-	public bool isMouseOver;
+	bool isMouseOver;
 
-	private void OnMouseDown()
-    {
+	void OnMouseDown()
+	{
 		typedText = value.ToString();
-		menu.isTyping = true;
+		menu.ignoreEscaping = true;
 		isMouseOver = true;
-		isInputKeyboard = true;
-    }
-    private void OnMouseExit()
-    {
+		isActive = true;
+	}
+	void OnMouseExit()
+	{
 		isMouseOver = false;
-    }
+	}
 }
