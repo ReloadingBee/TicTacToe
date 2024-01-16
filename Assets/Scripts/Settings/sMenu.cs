@@ -24,6 +24,7 @@ public class sMenu : MonoBehaviour
 
 	public List<bool> booleanSettings;
 	public List<int> intSettings;
+	public List<float> floatSettings;
 
 	public bool ignoreEscaping;
 	void Start()
@@ -39,7 +40,13 @@ public class sMenu : MonoBehaviour
 		// 1. Max FPS
 		intSettings = new List<int>
 		{
-			60
+			60 // FPS
+		};
+
+		floatSettings = new List<float>
+		{
+			1f, // 1. Music volume
+			1f // 2. Effects volume
 		};
 	}
 
@@ -61,6 +68,7 @@ public class sMenu : MonoBehaviour
 		settings.disableAnimations = booleanSettings[0];
 		settings.limitFPS = booleanSettings[1];
 		settings.targetFrameRate = intSettings[0];
+		settings.musicVolume = floatSettings[0];
 	}
 
 	void EnableMenu()
