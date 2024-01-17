@@ -8,6 +8,7 @@ public class sSlider : MonoBehaviour
 	{
 		menu = sMenu.instance;
 		cam = Camera.main;
+		spriteRenderer = GetComponent<SpriteRenderer>();
 		
 		Main();
 	}
@@ -26,27 +27,41 @@ public class sSlider : MonoBehaviour
 	bool isDragging;
 
 	Camera cam;
+	SpriteRenderer spriteRenderer;
 
 	public GameObject squareShadow;
 	public TMP_Text text;
+	
+	const float animationSpeed = 5;
+	const float maxScale = 1.2f;
 
 	void Update()
 	{
+		transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one * (isDragging || mouseOver ? maxScale : 1f), animationSpeed * Time.deltaTime);
+		spriteRenderer.color = isDragging || mouseOver ? new Color(0.8f, 0.8f, 0.8f, 1f) : Color.white;
+
+		Main();
 		menu.floatSettings[id] = value;
+
+		if (Input.GetKeyDown(KeyCode.Return)  || Input.GetKeyDown(KeyCode.Escape))
+		{
+			OnMouseUp();
+		}
+	}
+
+	void Main()
+	{
 		// Drag check
 		if (!isDragging)
 		{
 			if (mouseOver && mouseDown)
 			{
 				isDragging = true;
+				menu.ignoreEscaping = true;
 			}
 			return;
 		}
-		Main();
-	}
-
-	void Main()
-	{
+		
 		var mousePos = cam.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, 0));
 		mousePos.x = Mathf.Clamp(mousePos.x - parentOffsetX, lowerX, higherX);
 		
@@ -68,6 +83,10 @@ public class sSlider : MonoBehaviour
 	}
 	void OnMouseUp()
 	{
+		if (mouseDown && isDragging)
+		{
+			menu.ignoreEscaping = false;
+		}
 		mouseDown = false;
 		isDragging = false;
 	}

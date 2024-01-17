@@ -44,7 +44,7 @@ public class sNumericalInput : MonoBehaviour
 		// WRITE
 		for (int i = 0; i < 10; i++)
 		{
-			if (Input.GetKeyDown(KeyCode.Alpha0 + i))
+			if (Input.GetKeyDown(KeyCode.Alpha0 + i) || Input.GetKeyDown(KeyCode.Keypad0 + i))
 			{
 				if (typedText.Length < 5) typedText += i;
 			}

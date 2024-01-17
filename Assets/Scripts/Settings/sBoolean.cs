@@ -11,14 +11,19 @@ public class sBoolean : MonoBehaviour
 
     public int id;
     public bool isToggled = false;
+    bool mouseOver;
     
     public GameObject filledCheckbox;
 
+    const float animationSpeed = 5;
+    const float maxScale = 1.1f;
     void Update()
     {
+        transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one * (mouseOver ? maxScale : 1f), animationSpeed * Time.deltaTime);
         if (menu.isMenuEnabled)
         {
             filledCheckbox.SetActive(isToggled);
+            filledCheckbox.transform.localScale = transform.localScale;
         }
     }
     void OnMouseDown()
@@ -33,11 +38,13 @@ public class sBoolean : MonoBehaviour
     
     void OnMouseOver()
     {
+        mouseOver = true;
         spriteRenderer = filledCheckbox.GetComponent<SpriteRenderer>();
         spriteRenderer.color = filledCheckboxHoverColor;
     }
     void OnMouseExit()
     {
+        mouseOver = false;
         spriteRenderer.color = Color.white;
     }
 }
