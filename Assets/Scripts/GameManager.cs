@@ -98,7 +98,7 @@ public class GameManager : MonoBehaviour
 		EnableCooldown(1f);
 	} // Resets the game
 
-	void ResetBoard()
+	public void ResetBoard()
 	{
 		for (int i = 0; i < 9; i++)
 		{
@@ -223,4 +223,24 @@ public class GameManager : MonoBehaviour
 		currentTurn = '-';
 		turnText.text = "Current turn: -";
 	} // Checks for game end and changes respective vars
+
+	public GameObject transition;
+	public GameObject loadingAnimation;
+	public void Transition(float speed)
+	{
+		print("transitioning");
+		transition.gameObject.SetActive(true);
+		
+		loadingAnimation.transform.rotation *= Quaternion.Euler(0, 0, speed * Time.deltaTime);
+	}
+	public void EndTransition()
+	{
+		print("ended");
+		transition.gameObject.SetActive(false);
+	}
+	public void LoadScene(string scene, bool initializeNewGame)
+	{
+		SceneManager.LoadScene(scene);
+		if(initializeNewGame) InitializeGame();;
+	}
 }
