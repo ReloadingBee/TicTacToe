@@ -10,15 +10,21 @@ public class sTypingIndicator : MonoBehaviour
     float transparency;
     public float pingPongDuration = 0.5f;
 
+    bool lastParentIsTyping;
+    
     void Start()
     {
         rend = GetComponent<SpriteRenderer>();
+        rend.enabled = parent.isTyping;
     }
 
     void Update()
     {
-        rend.enabled = parent.isActive;
-        if (!parent.isActive) return;
+        if (lastParentIsTyping != parent.isTyping)
+        {
+            rend.enabled = lastParentIsTyping = parent.isTyping;
+        }
+        if (!parent.isTyping) return;
         transform.position = new Vector3(parent.typedText.Length * charWidth, 0, 0) + parent.transform.position;
 
         // Fading animation

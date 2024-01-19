@@ -33,14 +33,15 @@ public class sSlider : MonoBehaviour
 	public TMP_Text text;
 	
 	const float animationSpeed = 5;
-	const float maxScale = 1.2f;
+	const float maxAnimationScale = 1.2f;
 
 	void Update()
 	{
-		transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one * (isDragging || mouseOver ? maxScale : 1f), animationSpeed * Time.deltaTime);
+		Main();
+		
+		transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one * (mouseOver || isDragging ? maxAnimationScale : 1f), animationSpeed * Time.deltaTime);
 		spriteRenderer.color = isDragging || mouseOver ? new Color(0.8f, 0.8f, 0.8f, 1f) : Color.white;
 
-		Main();
 		menu.floatSettings[id] = value;
 
 		if (Input.GetKeyDown(KeyCode.Return)  || Input.GetKeyDown(KeyCode.Escape))
@@ -61,7 +62,7 @@ public class sSlider : MonoBehaviour
 			}
 			return;
 		}
-		
+
 		var mousePos = cam.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, 0));
 		mousePos.x = Mathf.Clamp(mousePos.x - parentOffsetX, lowerX, higherX);
 		

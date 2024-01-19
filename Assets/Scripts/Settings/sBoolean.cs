@@ -10,7 +10,7 @@ public class sBoolean : MonoBehaviour
     }
 
     public int id;
-    public bool isToggled = false;
+    public bool isToggled;
     bool mouseOver;
     
     public GameObject filledCheckbox;
@@ -20,11 +20,10 @@ public class sBoolean : MonoBehaviour
     void Update()
     {
         transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one * (mouseOver ? maxScale : 1f), animationSpeed * Time.deltaTime);
-        if (menu.isMenuEnabled)
-        {
-            filledCheckbox.SetActive(isToggled);
-            filledCheckbox.transform.localScale = transform.localScale;
-        }
+        if (!menu.isMenuEnabled)
+            return;
+        filledCheckbox.SetActive(isToggled);
+        filledCheckbox.transform.localScale = transform.localScale;
     }
     void OnMouseDown()
     {

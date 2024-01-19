@@ -15,13 +15,10 @@ public class sHoverEffect : MonoBehaviour
 
 	void OnMouseOver()
 	{
-		// Change the color when the mouse is over
 		spriteRenderer.color = hoverColor;
 	}
-
 	void OnMouseExit()
 	{
-		// Reset the color when the mouse exits
 		spriteRenderer.color = defaultColor;
 	}
 }

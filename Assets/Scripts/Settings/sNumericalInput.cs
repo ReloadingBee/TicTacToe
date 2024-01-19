@@ -15,39 +15,47 @@ public class sNumericalInput : MonoBehaviour
 	public int value;
 	public int lowerLimit;
 	public int higherLimit;
+	
+	public bool isTyping;
+	public string typedText;
+	
+	bool isMouseOver;
 
 	public TMP_Text text;
 
+	int lastValue;
+	
+
 	void Update()
 	{
-		value = Mathf.Clamp(value, lowerLimit, higherLimit);
-		menu.intSettings[id] = value;
-
-		text.text = value.ToString();
-
-		if (isActive)
+		if (lastValue != value)
 		{
-			// Check if clicked outside of the input field
-			if (Input.GetMouseButtonDown(0) && !isMouseOver)
-			{
-				UpdateValue();
-			}
-			// Check if pressed Enter or Escape keys
-			if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Escape))
-			{
-				UpdateValue();
-			}
+			value = Mathf.Clamp(value, lowerLimit, higherLimit);
+			menu.intSettings[id] = value;
+			text.text = value.ToString();
+			lastValue = value;
 		}
 
-		if (!isActive) return;
+		if (!isTyping)
+			return;
+		
+		// Check if clicked outside of the input field
+		if (Input.GetMouseButtonDown(0) && !isMouseOver)
+		{
+			UpdateValue();
+		}
+		// Check if pressed Enter or Escape keys
+		if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Escape))
+		{
+			UpdateValue();
+		}
 
 		// WRITE
-		for (int i = 0; i < 10; i++)
+		for (var i = 0; i < 10; i++)
 		{
-			if (Input.GetKeyDown(KeyCode.Alpha0 + i) || Input.GetKeyDown(KeyCode.Keypad0 + i))
-			{
-				if (typedText.Length < 5) typedText += i;
-			}
+			if (!Input.GetKeyDown(KeyCode.Alpha0 + i) && !Input.GetKeyDown(KeyCode.Keypad0 + i))
+				continue;
+			if (typedText.Length < 5) typedText += i;
 		}
 		// DELETE
 		if (Input.GetKeyDown(KeyCode.Backspace))
@@ -62,7 +70,7 @@ public class sNumericalInput : MonoBehaviour
 
 	void UpdateValue()
 	{
-		isActive = false;
+		isTyping = false;
 
 		// Turn typedText into an int
 		// Also make it fit into the boundaries of lowerLimit & higherLimit
@@ -70,22 +78,15 @@ public class sNumericalInput : MonoBehaviour
 		if (value > higherLimit) value = higherLimit;
 
 		// Update the text
-		typedText = value.ToString();
-		text.text = typedText;
+		typedText = text.text = value.ToString();
 		menu.ignoreEscaping = false;
 	}
-
-	public bool isActive;
-	public string typedText;
-
-	bool isMouseOver;
-
 	void OnMouseDown()
 	{
 		typedText = value.ToString();
 		menu.ignoreEscaping = true;
 		isMouseOver = true;
-		isActive = true;
+		isTyping = true;
 	}
 	void OnMouseExit()
 	{

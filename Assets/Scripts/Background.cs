@@ -10,6 +10,7 @@ public class Background : MonoBehaviour
 
 	void Start()
 	{
+		DontDestroyOnLoad(gameObject);
 		settings = Settings.instance;
 	}
 

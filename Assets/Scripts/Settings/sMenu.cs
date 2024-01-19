@@ -5,6 +5,7 @@ public class sMenu : MonoBehaviour
 {
 	public static sMenu instance;
 	Settings settings;
+	mMenu menu;
 	void Awake()
 	{
 		if (instance == null)
@@ -16,10 +17,10 @@ public class sMenu : MonoBehaviour
 		{
 			Destroy(gameObject);
 		}
+		ignoreEscaping = false;
 	} // Singleton
 
 	public bool isMenuEnabled;
-	public GameObject fade;
 	public GameObject elements;
 
 	public List<bool> booleanSettings;
@@ -30,6 +31,7 @@ public class sMenu : MonoBehaviour
 	void Start()
 	{
 		settings = Settings.instance;
+		menu = mMenu.instance;
 
 		booleanSettings = new List<bool>
 		{
@@ -40,7 +42,7 @@ public class sMenu : MonoBehaviour
 		// 1. Max FPS
 		intSettings = new List<int>
 		{
-			60 // FPS
+			60 // Max FPS
 		};
 
 		floatSettings = new List<float>
@@ -52,6 +54,10 @@ public class sMenu : MonoBehaviour
 
 	void Update()
 	{
+		elements.SetActive(isMenuEnabled);
+		
+		if (!isMenuEnabled) return;
+		
 		if (Input.GetKeyDown(KeyCode.Escape))
 		{
 			if (!ignoreEscaping) ToggleMenu();
@@ -60,34 +66,26 @@ public class sMenu : MonoBehaviour
 				ignoreEscaping = false;
 			}
 		}
-
-		elements.SetActive(isMenuEnabled);
-
-		if (!isMenuEnabled) return;
-
 		settings.disableAnimations = booleanSettings[0];
 		settings.limitFPS = booleanSettings[1];
 		settings.targetFrameRate = intSettings[0];
 		settings.musicVolume = floatSettings[0];
 	}
 
-	void EnableMenu()
+	public void EnableMenu()
 	{
 		isMenuEnabled = true;
-		fade.SetActive(true);
 	}
-
-	void DisableMenu()
+	public void DisableMenu()
 	{
 		isMenuEnabled = false;
-		fade.SetActive(false);
 	}
-
 	public void ToggleMenu()
 	{
 		if (isMenuEnabled)
 		{
 			DisableMenu();
+			menu.EnableMenu();
 		}
 		else
 		{
