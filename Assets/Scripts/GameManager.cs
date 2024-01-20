@@ -70,6 +70,7 @@ public class GameManager : MonoBehaviour
 		}
 
 		if (!game.hasGameStarted) return;
+		// TODO: Assign texts
 		//winnerText.text = $"Winner: {game.winner.ToString().ToUpper()}";
 		//turnText.text = $"Current turn: {game.currentTurn.ToString().ToUpper()}";
 		//moveCountText.text = $"Move count: {game.moveCount}";
