@@ -6,15 +6,16 @@ public class AutoRestart : MonoBehaviour
 	bool haveInvoked;
 	void Update()
 	{
-		if (haveInvoked || !GameManager.instance.gameEnded)
-			return;
-		haveInvoked = true;
-		Invoke("Restart", restartDelayInSeconds);
+		if (!haveInvoked && Game.instance.hasGameEnded)
+		{
+			haveInvoked = true;
+			Invoke("Restart", restartDelayInSeconds);
+		}
 	}
 
 	void Restart()
 	{
-		GameManager.instance.InitializeGame();
+		Game.instance.InitializeGame();
 		haveInvoked = false;
 	}
 }

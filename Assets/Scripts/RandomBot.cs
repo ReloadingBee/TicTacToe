@@ -2,20 +2,20 @@ using UnityEngine;
 
 public class RandomBot : MonoBehaviour
 {
-	GameManager gameManager;
+	Game game;
 
 	public GameManager.Players symbol = GameManager.Players.o;
 	char player;
 	void Start()
 	{
-		gameManager = GameManager.instance;
+		game = Game.instance;
 		player = (char)symbol;
 	}
 	void Update()
 	{
-		if (gameManager.gameEnded || gameManager.currentTurn != player) return;
+		if (game.hasGameEnded || game.currentTurn != player) return;
 		
-		int move = Random.Range(0, 9); // [0, 9)
-		gameManager.Move(move);
+		var move = Random.Range(0, 9); // [0, 9)
+		game.Move(move);
 	}
 }

@@ -1,22 +1,21 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RandomFasterBot : MonoBehaviour
 {
-	GameManager gameManager;
+	Game game;
 
 	public GameManager.Players symbol = GameManager.Players.o;
 	char player;
 	void Start()
 	{
-		gameManager = GameManager.instance;
+		game = Game.instance;
 		player = (char)symbol;
 	}
 	void Update()
 	{
-		if (gameManager.gameEnded || gameManager.currentTurn != player) return;
+		if (game.hasGameEnded || game.currentTurn != player) return;
 
-		List<int> moves = gameManager.GetEmptyPositions(gameManager.board);
-		gameManager.Move(moves[Random.Range(0, moves.Count)]);
+		var moves = game.GetEmptyPositions(game.board);
+		game.Move(moves[Random.Range(0, moves.Count)]);
 	}
 }

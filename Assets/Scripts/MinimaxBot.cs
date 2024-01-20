@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class MinimaxBot : MonoBehaviour
 {
-	GameManager gameManager;
+	Game game;
 
 	public GameManager.Players symbol = GameManager.Players.o;
 	char player;
@@ -16,7 +16,7 @@ public class MinimaxBot : MonoBehaviour
 	const int evalOffset = 2; // Master depth + First move
 	void Start()
 	{
-		gameManager = GameManager.instance;
+		game = Game.instance;
 		player = (char)symbol;
 	}
 	void Update()
@@ -27,15 +27,15 @@ public class MinimaxBot : MonoBehaviour
 	void Move()
 	{
 		// Quit if it's not my turn!
-		if (gameManager.isCooldownEnabled || gameManager.gameEnded || gameManager.currentTurn != player) return;
-		var bestMove = Minimax(gameManager.board, 0, true, useDepthLimit ? depthLimit : maxDepth);
-		gameManager.Move(bestMove);
+		if (game.isCooldownEnabled || !game.hasGameStarted || game.hasGameEnded || game.currentTurn != player) return;
+		var bestMove = Minimax(game.board, 0, true, useDepthLimit ? depthLimit : maxDepth);
+		game.Move(bestMove);
 	}
 
 	int Minimax(string[] currentBoard, int depth, bool isMaximizingPlayer, int mMaxDepth = maxDepth)
 	{
-		// Optimization for the first move, move randomly instead of calculating the whole game tree
-		if (gameManager.GetEmptyPositions(currentBoard).Count == 9)
+		// Optimization: on the first move, move randomly instead of calculating the whole game tree
+		if (game.GetEmptyPositions(currentBoard).Count == 9)
 		{
 			return Random.Range(0, 9);
 		}
@@ -46,14 +46,14 @@ public class MinimaxBot : MonoBehaviour
 		const int winValue = 10;
 		const int drawValue = 0;
 
-		#region Final Values
+		#region Evaluation
 		// Return good values for winning and bad values for losing
-		if (gameManager.GameHasWon(currentBoard, isMaximizingPlayer ? player : GameManager.OppositePlayer(player)))
+		if (game.GameHasWon(currentBoard, isMaximizingPlayer ? player : game.OppositePlayer(player)))
 		{
 			return isMaximizingPlayer ? winValue - depth + evalOffset : -winValue + depth - evalOffset;
 		}
 		// Draw
-		if (!gameManager.GameHasWon(currentBoard, player) && !gameManager.GameHasWon(currentBoard, GameManager.OppositePlayer(player)) && gameManager.GameIsDraw(currentBoard))
+		if (!game.GameHasWon(currentBoard, player) && !game.GameHasWon(currentBoard, game.OppositePlayer(player)) && game.GameIsDraw(currentBoard))
 		{
 			return drawValue;
 		}
@@ -70,12 +70,13 @@ public class MinimaxBot : MonoBehaviour
 		{
 			bestVal = -winValue;
 			// Loop through every empty position
-			foreach (var move in gameManager.GetEmptyPositions(currentBoard))
+			foreach (var move in game.GetEmptyPositions(currentBoard))
 			{
 				currentBoard[move] = player.ToString(); // Make the move on the board
 				var value = Minimax(currentBoard, depth + 1, false, mMaxDepth);
 				currentBoard[move] = string.Empty; // Undo move
 
+				// Best move(s)
 				if (depth == masterDepth)
 				{
 					if (value == bestVal)
@@ -105,9 +106,9 @@ public class MinimaxBot : MonoBehaviour
 		{
 			bestVal = winValue;
 			// Loop through every empty position
-			foreach (var move in gameManager.GetEmptyPositions(currentBoard))
+			foreach (var move in game.GetEmptyPositions(currentBoard))
 			{
-				currentBoard[move] = GameManager.OppositePlayer(player).ToString(); // Make the move on the board
+				currentBoard[move] = game.OppositePlayer(player).ToString(); // Make the move on the board
 				var value = Minimax(currentBoard, depth + 1, true, mMaxDepth);
 				currentBoard[move] = string.Empty; // Undo move
 
