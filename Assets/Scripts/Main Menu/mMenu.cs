@@ -22,6 +22,8 @@ public class mMenu : MonoBehaviour
 	bool lastIsMenuEnabled;
 	
 	public GameObject elements;
+	
+	public string sceneScript = "mMenu";
 	void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.UpArrow))
@@ -49,17 +51,6 @@ public class mMenu : MonoBehaviour
 	public void DisableMenu()
 	{
 		isMenuEnabled = false;
-	}
-	public void ToggleMenu()
-	{
-		if (isMenuEnabled)
-		{
-			DisableMenu();
-		}
-		else
-		{
-			EnableMenu();
-		}
 	}
 
 	public int selectedButton;

@@ -5,7 +5,6 @@ public class sMenu : MonoBehaviour
 {
 	public static sMenu instance;
 	Settings settings;
-	mMenu menu;
 	void Awake()
 	{
 		if (instance == null)
@@ -31,7 +30,6 @@ public class sMenu : MonoBehaviour
 	void Start()
 	{
 		settings = Settings.instance;
-		menu = mMenu.instance;
 
 		booleanSettings = new List<bool>
 		{
@@ -60,7 +58,11 @@ public class sMenu : MonoBehaviour
 		
 		if (Input.GetKeyDown(KeyCode.Escape))
 		{
-			if (!ignoreEscaping) ToggleMenu();
+			if (!ignoreEscaping)
+			{
+				DisableMenu();
+				mMenu.instance.EnableMenu();
+			}
 			else
 			{
 				ignoreEscaping = false;
@@ -85,7 +87,6 @@ public class sMenu : MonoBehaviour
 		if (isMenuEnabled)
 		{
 			DisableMenu();
-			menu.EnableMenu();
 		}
 		else
 		{

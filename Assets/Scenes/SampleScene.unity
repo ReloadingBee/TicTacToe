@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &436335968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2279,8 +2279,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   symbol: 111
   evaluation: 0
-  useDepthLimit: 0
-  depthLimit: 0
+  useDepthLimit: 1
+  depthLimit: 3
 --- !u!1 &1836113720
 GameObject:
   m_ObjectHideFlags: 0

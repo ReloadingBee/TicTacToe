@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class Background : MonoBehaviour
@@ -10,8 +9,8 @@ public class Background : MonoBehaviour
 
 	void Start()
 	{
-		DontDestroyOnLoad(gameObject);
 		settings = Settings.instance;
+		DontDestroyOnLoad(gameObject);
 	}
 
 	void Update()

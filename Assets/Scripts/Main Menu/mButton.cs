@@ -1,10 +1,8 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class mButton : MonoBehaviour
 {
 	mMenu mainMenu;
-	sMenu settingsMenu;
 
 	[Range(0, 3)] public int id;
 
@@ -25,7 +23,6 @@ public class mButton : MonoBehaviour
 	void Start()
 	{
 		mainMenu = mMenu.instance;
-		settingsMenu = sMenu.instance;
 
 		rect = GetComponent<RectTransform>();
 	}
@@ -62,16 +59,18 @@ public class mButton : MonoBehaviour
 		{
 			case 0:
 				// Play
-				SceneManager.LoadScene("SampleScene");
+				GameManager.instance.LoadScene("SampleScene");
 				mainMenu.DisableMenu();
 				break;
 			case 1:
 				// Settings
 				mainMenu.DisableMenu();
-				settingsMenu.EnableMenu();
+				sMenu.instance.EnableMenu();
 				break;
 			case 2:
 				// Credits
+				mainMenu.DisableMenu();
+				Credits.instance.EnableMenu();
 				break;
 			case 3:
 				// Quit

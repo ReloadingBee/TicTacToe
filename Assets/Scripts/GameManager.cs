@@ -1,5 +1,5 @@
-using System;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
 		}
 	} // Singleton magic
 	
-	public List<string> scenes;
+	public string activeScene;
 
 	public bool isCooldownEnabled;
 	public float remainingCooldown;
@@ -48,8 +48,9 @@ public class GameManager : MonoBehaviour
 	void Start()
 	{
 		game = Game.instance;
-		
 		source = GetComponent<AudioSource>();
+
+		LoadScene(null);
 	}
 
 	void Update()
@@ -86,8 +87,12 @@ public class GameManager : MonoBehaviour
 		source.PlayOneShot(sounds[sound]);
 	}
 
-	public void LoadScene(string scene)
+	public void LoadScene([CanBeNull] string scene)
 	{
-		SceneManager.LoadScene(scene);
+		if (scene != null)
+		{
+			SceneManager.LoadScene(scene);
+		}
+		activeScene = SceneManager.GetActiveScene().name;
 	}
 }
