@@ -41,7 +41,7 @@ public class Game : MonoBehaviour
 	void Start()
 	{
 		gameManager = GameManager.instance;
-		
+
 		board = new string[9];
 		if (SceneManager.GetActiveScene().name == "SampleScene") InitializeGame();
 	}
@@ -55,7 +55,6 @@ public class Game : MonoBehaviour
 		}
 
 		// Cooldown logic
-		// Cooldown logic
 		if (isCooldownEnabled)
 		{
 			remainingCooldown -= Time.deltaTime;
@@ -66,7 +65,7 @@ public class Game : MonoBehaviour
 			}
 		}
 	}
-	
+
 	void EnableCooldown(float cooldown)
 	{
 		remainingCooldown = cooldown;

@@ -59,8 +59,9 @@ public class mButton : MonoBehaviour
 		{
 			case 0:
 				// Play
-				GameManager.instance.LoadScene("SampleScene");
 				mainMenu.DisableMenu();
+				GameManager.instance.LoadScene("SampleScene");
+				Game.instance.InitializeGame();
 				break;
 			case 1:
 				// Settings

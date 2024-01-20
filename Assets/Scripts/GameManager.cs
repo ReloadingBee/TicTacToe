@@ -68,12 +68,6 @@ public class GameManager : MonoBehaviour
 				isCooldownEnabled = false;
 			}
 		}
-
-		if (!game.hasGameStarted) return;
-		// TODO: Assign texts
-		//winnerText.text = $"Winner: {game.winner.ToString().ToUpper()}";
-		//turnText.text = $"Current turn: {game.currentTurn.ToString().ToUpper()}";
-		//moveCountText.text = $"Move count: {game.moveCount}";
 	}
 
 	void EnableCooldown(float cooldown)

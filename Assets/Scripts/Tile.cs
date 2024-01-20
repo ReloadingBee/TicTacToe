@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 public class Tile : MonoBehaviour
 {
@@ -7,8 +8,8 @@ public class Tile : MonoBehaviour
 	public GameObject oPrefab;
 
 	GameObject child;
-	bool isChildAlive;
-	const float childScale = 0.2f;
+	public bool isChildAlive;
+	Vector3 targetScale = Vector3.one * 0.2f;
 	const float childAnimationSpeed = 5;
 
 	public bool mouseOver;
@@ -18,6 +19,9 @@ public class Tile : MonoBehaviour
 	GameObject ghost;
 
 	public int id;
+
+	public float cooldown;
+	public bool isCooldownEnabled;
 
 	void Start()
 	{
@@ -39,6 +43,32 @@ public class Tile : MonoBehaviour
 			isChildAlive = false;
 			InstantiateGhost();
 		}
+
+		#region Tile removal
+
+		// Tile removing animation
+		if (isCooldownEnabled) cooldown -= Time.deltaTime;
+		if (game.hasGameEnded && isChildAlive && !isCooldownEnabled)
+		{
+			cooldown = 1 + 0.1f * id;
+			isCooldownEnabled = true;
+		}
+		if (isCooldownEnabled && cooldown <= 0f)
+		{
+			cooldown = 0f;
+			isCooldownEnabled = false;
+			targetScale = Vector3.zero;
+
+			if (isChildAlive && child.transform.localScale == targetScale)
+			{
+				game.board[id] = string.Empty;
+				Destroy(child);
+				isChildAlive = false;
+				targetScale = Vector3.one * 0.2f;
+			}
+		}
+
+		#endregion
 
 		if (!game.hasGameStarted) return;
 
@@ -68,7 +98,7 @@ public class Tile : MonoBehaviour
 			child = Instantiate(symbol, transform);
 
 			// Child scale
-			child.transform.localScale = Settings.instance.disableAnimations ? Vector3.one * childScale : Vector3.zero;
+			child.transform.localScale = Settings.instance.disableAnimations ? targetScale : Vector3.zero;
 
 			isChildAlive = true;
 		}
@@ -76,26 +106,34 @@ public class Tile : MonoBehaviour
 	void HandleChild()
 	{
 		// If the size is already correct, exit
-		if (child.transform.localScale == Vector3.one * childScale) return;
+		if (child.transform.localScale == targetScale) return;
 
 		if (!Settings.instance.disableAnimations)
 		{
 			// Ease-out animation
-			child.transform.localScale = Vector3.Lerp(child.transform.localScale, Vector3.one * childScale, childAnimationSpeed * Time.deltaTime);
+			var scale = Vector3.Lerp(child.transform.localScale, targetScale, childAnimationSpeed * Time.deltaTime);
+
+			// Faster rounding
+			if (MathF.Round(scale.x, 2) == targetScale.x)
+			{
+				child.transform.localScale = targetScale;
+			}
+			else child.transform.localScale = scale;
 		}
 		else
 		{
-			child.transform.localScale = Vector3.one * childScale;
+			child.transform.localScale = targetScale;
 		}
 	}
 
 	void InstantiateGhost()
 	{
+		if (game.hasGameEnded) return;
 		// Instantiate a new ghost
 		var symbol = game.currentTurn.ToString() == GameManager.Players.x.ToString() ? xPrefab : oPrefab;
 		ghostSymbol = game.currentTurn.ToString() == GameManager.Players.x.ToString() ? 'x' : 'o';
 		ghost = Instantiate(symbol, transform);
-		ghost.transform.localScale = Vector3.one * childScale;
+		ghost.transform.localScale = targetScale;
 		isGhostAlive = true;
 
 		ghost.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
