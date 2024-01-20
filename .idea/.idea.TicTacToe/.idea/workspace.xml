@@ -5,16 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0f9c6a79-b87c-4fe6-a2d1-eb767ddc413e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Art/SVG/O Indicator.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/SVG/O Indicator.svg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/SVG/X Indicator.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/SVG/X Indicator.svg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/TurnIndicator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/TurnIndicator.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TicTacToe/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TicTacToe/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tile.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,7 +158,7 @@
       <workItem from="1705682388361" duration="2522000" />
       <workItem from="1705686647031" duration="1454000" />
       <workItem from="1705740748071" duration="9566000" />
-      <workItem from="1705763718029" duration="3064000" />
+      <workItem from="1705763718029" duration="5951000" />
     </task>
     <task id="LOCAL-00001" summary="Keyboard shortcut (R) to reset the game">
       <created>1703494104040</created>
