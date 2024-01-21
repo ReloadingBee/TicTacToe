@@ -21,6 +21,5 @@ public class Settings : MonoBehaviour
     public bool limitFPS;
     [Range(5, 10000)] public int targetFrameRate = 60;
     
-    [Range(0f, 1f)] public float musicVolume = 1f;
-    [Range(0f, 1f)] public float effectVolume = 1f;
+    [Range(0f, 1f)] public float soundVolume = 1f;
 }

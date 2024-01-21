@@ -71,7 +71,7 @@ public class sMenu : MonoBehaviour
 		settings.disableAnimations = booleanSettings[0];
 		settings.limitFPS = booleanSettings[1];
 		settings.targetFrameRate = intSettings[0];
-		settings.musicVolume = floatSettings[0];
+		settings.soundVolume = floatSettings[0];
 	}
 
 	public void EnableMenu()

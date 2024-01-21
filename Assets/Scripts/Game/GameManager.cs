@@ -30,10 +30,6 @@ public class GameManager : MonoBehaviour
 
 	public bool isCooldownEnabled;
 	public float remainingCooldown;
-
-	public TMP_Text turnText;
-	public TMP_Text winnerText;
-	public TMP_Text moveCountText;
 	
 	// Sounds
 	public List<AudioClip> moveSounds;
@@ -57,6 +53,7 @@ public class GameManager : MonoBehaviour
 	{
 		// Default targetFrameRate value is -1
 		Application.targetFrameRate = settings.limitFPS ? settings.targetFrameRate : -1;
+		source.volume = settings.soundVolume;
 
 		// Cooldown logic
 		if (isCooldownEnabled)
