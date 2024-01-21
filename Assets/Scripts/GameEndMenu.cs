@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class GameEndMenu : MonoBehaviour
@@ -22,6 +23,8 @@ public class GameEndMenu : MonoBehaviour
 	bool lastIsMenuEnabled;
 	
 	public GameObject elements;
+
+	public TMP_Text text;
 	void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.UpArrow))
@@ -44,11 +47,27 @@ public class GameEndMenu : MonoBehaviour
 
 	public void EnableMenu()
 	{
-		isMenuEnabled = true;
+		if (Game.instance.winner == '-')
+		{
+			// Draw
+			text.text = $"It's a draw!";
+		}
+		else
+		{
+			// Someone won
+			text.text = $"{Game.instance.winner.ToString().ToUpper()} has Won!";
+		}
+		Invoke("ActuallyEnableMenu", 3f);
 	}
 	public void DisableMenu()
 	{
 		isMenuEnabled = false;
+	}
+
+	void ActuallyEnableMenu()
+	{
+		// The deadline is in an hour OK? Writing bad code just so it works
+		isMenuEnabled = true;
 	}
 
 	public int selectedButton;

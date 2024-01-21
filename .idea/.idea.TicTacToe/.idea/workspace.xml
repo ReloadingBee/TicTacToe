@@ -5,16 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0f9c6a79-b87c-4fe6-a2d1-eb767ddc413e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GameEndButton.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GameEndButton.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GameEndMenu.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GameEndMenu.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TicTacToe/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TicTacToe/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Main Menu/mMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Main Menu/mMenu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameEndMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameEndMenu.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,7 +162,7 @@
       <workItem from="1705686647031" duration="1454000" />
       <workItem from="1705740748071" duration="9566000" />
       <workItem from="1705763718029" duration="13829000" />
-      <workItem from="1705827181981" duration="1605000" />
+      <workItem from="1705827181981" duration="2709000" />
     </task>
     <task id="LOCAL-00001" summary="Keyboard shortcut (R) to reset the game">
       <created>1703494104040</created>
