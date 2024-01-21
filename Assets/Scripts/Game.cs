@@ -187,6 +187,7 @@ public class Game : MonoBehaviour
 			winner = turn;
 			currentTurn = '-';
 			hasGameEnded = true;
+			GameEndMenu.instance.EnableMenu();
 			return;
 		}
 
@@ -198,5 +199,6 @@ public class Game : MonoBehaviour
 		hasGameEnded = true;
 		winner = '-';
 		currentTurn = '-';
+		GameEndMenu.instance.EnableMenu();
 	} // Checks for game end and changes respective vars
 }

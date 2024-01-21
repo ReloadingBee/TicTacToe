@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class mMenu : MonoBehaviour
+public class GameEndMenu : MonoBehaviour
 {
-	public static mMenu instance;
+	public static GameEndMenu instance;
 	void Awake()
 	{
 		if (instance == null)
@@ -27,12 +27,12 @@ public class mMenu : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.UpArrow))
 		{
 			selectedButton--;
-			selectedButton = Mathf.Clamp(selectedButton, 0, 3);
+			selectedButton = Mathf.Clamp(selectedButton, 0, 1);
 		}
 		if (Input.GetKeyDown(KeyCode.DownArrow))
 		{
 			selectedButton++;
-			selectedButton = Mathf.Clamp(selectedButton, 0, 3);
+			selectedButton = Mathf.Clamp(selectedButton, 0, 1);
 		}
 		
 		if (lastIsMenuEnabled == isMenuEnabled)
