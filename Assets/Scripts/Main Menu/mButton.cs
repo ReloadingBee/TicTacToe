@@ -60,8 +60,7 @@ public class mButton : MonoBehaviour
 			case 0:
 				// Play
 				mainMenu.DisableMenu();
-				GameManager.instance.LoadScene("SampleScene");
-				Game.instance.InitializeGame();
+				dMenu.instance.EnableMenu1();
 				break;
 			case 1:
 				// Settings
