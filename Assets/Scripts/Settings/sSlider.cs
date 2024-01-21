@@ -81,6 +81,7 @@ public class sSlider : MonoBehaviour
 	void OnMouseDown()
 	{
 		mouseDown = true;
+		GameManager.instance.PlayRandomSound(GameManager.instance.tickSounds);
 	}
 	void OnMouseUp()
 	{

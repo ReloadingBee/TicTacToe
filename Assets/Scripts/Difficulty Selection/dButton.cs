@@ -75,6 +75,7 @@ public class dButton : MonoBehaviour
 
 	void ClickHandler()
 	{
+		GameManager.instance.PlayRandomSound(GameManager.instance.tickSounds);
 		if (menu.menuID == 1)
 		{
 			switch (id)

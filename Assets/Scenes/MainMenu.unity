@@ -258,6 +258,10 @@ PrefabInstance:
       propertyPath: id
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 252272703639183669, guid: d7704e57605940f48b986fc3b1c96218, type: 3}
+      propertyPath: value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 555952548117459396, guid: d7704e57605940f48b986fc3b1c96218, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -4172,6 +4176,18 @@ PrefabInstance:
       propertyPath: restartDelayInSeconds
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 6005926500090593721, guid: 016345ddf675eca49b044fdd4693dd2e, type: 3}
+      propertyPath: tickSounds.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6005926500090593721, guid: 016345ddf675eca49b044fdd4693dd2e, type: 3}
+      propertyPath: tickSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 0217d61a913c8de428848c9bf5094c1c, type: 3}
+    - target: {fileID: 6005926500090593721, guid: 016345ddf675eca49b044fdd4693dd2e, type: 3}
+      propertyPath: tickSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: c2e2c6466273cba44b8c47e588aa847c, type: 3}
     - target: {fileID: 7726949747230784396, guid: 016345ddf675eca49b044fdd4693dd2e, type: 3}
       propertyPath: m_Volume
       value: 1

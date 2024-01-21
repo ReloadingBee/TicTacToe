@@ -55,6 +55,7 @@ public class mButton : MonoBehaviour
 
 	void ClickHandler()
 	{
+		GameManager.instance.PlayRandomSound(GameManager.instance.tickSounds);
 		switch (id)
 		{
 			case 0:

@@ -87,6 +87,7 @@ public class sNumericalInput : MonoBehaviour
 		menu.ignoreEscaping = true;
 		isMouseOver = true;
 		isTyping = true;
+		GameManager.instance.PlayRandomSound(GameManager.instance.tickSounds);
 	}
 	void OnMouseExit()
 	{

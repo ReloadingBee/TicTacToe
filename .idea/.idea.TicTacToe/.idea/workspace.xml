@@ -5,19 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0f9c6a79-b87c-4fe6-a2d1-eb767ddc413e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/MainCam.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/MainCam.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sounds/Tick1.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sounds/Tick1.mp3.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sounds/Tick2.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sounds/Tick2.mp3.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TicTacToe/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TicTacToe/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Easy.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Easy.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Hard.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Hard.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Impossible.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Impossible.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Medium.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Medium.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Multi-Player.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Multi-Player.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Difficulty Selection/dButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Difficulty Selection/dButton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game End/GameEndButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game End/GameEndButton.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Settings/Settings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Settings/Settings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Main Menu/mButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Main Menu/mButton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Settings/sBoolean.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Settings/sBoolean.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Settings/sMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Settings/sMenu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Settings/sNumericalArrow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Settings/sNumericalArrow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Settings/sNumericalInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Settings/sNumericalInput.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Settings/sSlider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Settings/sSlider.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,7 +167,7 @@
       <workItem from="1705686647031" duration="1454000" />
       <workItem from="1705740748071" duration="9566000" />
       <workItem from="1705763718029" duration="13829000" />
-      <workItem from="1705827181981" duration="7398000" />
+      <workItem from="1705827181981" duration="9766000" />
     </task>
     <task id="LOCAL-00001" summary="Keyboard shortcut (R) to reset the game">
       <created>1703494104040</created>

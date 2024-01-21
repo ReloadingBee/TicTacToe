@@ -35,6 +35,7 @@ public class sNumericalArrow : MonoBehaviour
 		holdChain = Mathf.Clamp(holdChain, 1, 10);
 		cooldown = rapidTriggerCooldown / holdChain;
 		transform.localScale = Vector3.one * 1f; // Click animation
+		GameManager.instance.PlayRandomSound(GameManager.instance.tickSounds);
 	}
 
 	void OnMouseDown()

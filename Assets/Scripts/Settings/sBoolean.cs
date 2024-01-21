@@ -29,6 +29,7 @@ public class sBoolean : MonoBehaviour
     {
         isToggled = !isToggled;
         menu.booleanSettings[id] = isToggled;
+        GameManager.instance.PlayRandomSound(GameManager.instance.tickSounds);
     }
     
     

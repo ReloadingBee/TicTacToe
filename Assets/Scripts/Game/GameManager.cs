@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using JetBrains.Annotations;
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
@@ -33,6 +32,7 @@ public class GameManager : MonoBehaviour
 	
 	// Sounds
 	public List<AudioClip> moveSounds;
+	public List<AudioClip> tickSounds;
 	AudioSource source;
 
 	public enum Players

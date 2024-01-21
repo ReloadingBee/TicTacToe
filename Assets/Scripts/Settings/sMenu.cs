@@ -45,8 +45,7 @@ public class sMenu : MonoBehaviour
 
 		floatSettings = new List<float>
 		{
-			1f, // 1. Music volume
-			1f // 2. Effects volume
+			1f, // Sound volume
 		};
 	}
 
@@ -77,6 +76,7 @@ public class sMenu : MonoBehaviour
 	public void EnableMenu()
 	{
 		isMenuEnabled = true;
+		//settings.soundVolume = 1f;
 	}
 	public void DisableMenu()
 	{
